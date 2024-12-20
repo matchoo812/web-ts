@@ -1,5 +1,8 @@
+import axios, { AxiosResponse } from "axios";
+
 // make each user prop optional so they can be assigned individually in set method
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
@@ -32,5 +35,25 @@ export class User {
     handlers.forEach((callback) => {
       callback();
     });
+  }
+
+  fetch(): void {
+    axios
+      .get(`http://localhost:3000/users/${this.get("id")}`)
+      .then((response: AxiosResponse): void => {
+        this.set(response.data);
+      });
+  }
+
+  save(): void {
+    const id = this.get("id");
+    const userEndpoint = "http://localhost:3000/users";
+
+    if (id) {
+      // put request if user already exists in db
+      axios.put(`${userEndpoint}/${id}`, this.data);
+    } else {
+      axios.post(userEndpoint, this.data);
+    }
   }
 }

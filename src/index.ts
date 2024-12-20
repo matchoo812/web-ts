@@ -1,13 +1,5 @@
 import { User } from "./models/User";
 
-const user = new User({ name: "Sven", age: 22 });
+const user = new User({ name: "Finn", age: 13 });
 
-user.on("change", () => {
-  console.log("Something changed!");
-});
-user.on("click", () => {
-  console.log("Stop clicking me!");
-});
-
-user.trigger("change");
-user.trigger("click");
+user.save();
