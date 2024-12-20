@@ -1,0 +1,17 @@
+# Parcel build output
+dist/
+.parcel-cache/
+
+# TypeScript compilation artifacts
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Node modules
+node_modules/
+
+# Code editor files
+.vscode/
+
+.env
