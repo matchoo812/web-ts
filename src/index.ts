@@ -2,5 +2,12 @@ import { User } from "./models/User";
 
 const user = new User({ name: "Sven", age: 22 });
 
-console.log(user.get("name"));
-console.log(user.get("age"));
+user.on("change", () => {
+  console.log("Something changed!");
+});
+user.on("click", () => {
+  console.log("Stop clicking me!");
+});
+
+user.trigger("change");
+user.trigger("click");
