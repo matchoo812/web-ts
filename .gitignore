@@ -14,6 +14,11 @@ node_modules/
 # Code editor files
 .vscode/
 
+# Environment variables
 .env
 
+# Databse
 db.json
+
+# Typescript configuration
+tsconfig.json
